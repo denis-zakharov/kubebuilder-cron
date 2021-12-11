@@ -48,4 +48,13 @@ func init() {
 }
 ```
 
+# defining an api
+All serialized fields must be `camelCase`.
+
+Type coversions:
+- primitives
+- numbers: `int32` and `int64`
+- decimals: `resource.Quantity` (like `100m`, `100Mi`, `1M`).
+- time: `metav1.Time`.
+
 # make manifests
