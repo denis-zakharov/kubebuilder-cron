@@ -78,3 +78,9 @@ kubebuilder create webhook --group batch --version v1 --kind CronJob --defaultin
 ```
 
 # make manifests
+
+# deploy
+```
+make docker-build docker-push IMG=zadenis/cronjob-controller:v0.1
+make deploy IMG=zadenis/cronjob-controller:v0.1
+```
