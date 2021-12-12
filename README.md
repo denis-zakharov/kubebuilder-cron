@@ -57,4 +57,19 @@ Type coversions:
 - decimals: `resource.Quantity` (like `100m`, `100Mi`, `1M`).
 - time: `metav1.Time`.
 
+# controller
+
+Each controller focuses on one *root* Kind but may interact with other Kinds.
+
+A controller implements `sigs.k8s.io/controller-runtime/pkg/reconcile.Reconciler` interface:
+
+```go
+type Reconciler interface {
+	// Reconciler performs a full reconciliation for the object referred to by the Request.
+	// The Controller will requeue the Request to be processed again if an error is non-nil or
+	// Result.Requeue is true, otherwise upon completion it will remove the work from the queue.
+	Reconcile(context.Context, Request) (Result, error)
+}
+```
+
 # make manifests
